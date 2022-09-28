@@ -1,0 +1,58 @@
+Description: CMake/ecbuild fragment to find the PROJ4 library
+Author: Alastair McKinstry <mckinstry@debian.org>
+Last-Updated: 2020-01-06
+Forwarded: no
+
+Index: atlas-ecmwf-0.20.0/cmake/FindPROJ4.cmake
+===================================================================
+--- /dev/null
++++ atlas-ecmwf-0.20.0/cmake/FindPROJ4.cmake
+@@ -0,0 +1,48 @@
++# (C) Copyright 2020- Alastair McKinstry 
++#
++# This software is licensed under the terms of the Apache Licence Version 2.0
++# which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
++# In applying this licence, ECMWF does not waive the privileges and immunities
++# granted to it by virtue of its status as an intergovernmental organisation nor
++# does it submit to any jurisdiction.
++
++# - Try to find libPROJ
++# Once done this will define
++#
++#  PROJ4_FOUND         - found PROJ
++#  PROJ4_INCLUDE_DIRS  - the PROJ include directories
++#  PROJ4_LIBRARIES     - the PROJ libraries
++#
++# The following paths will be searched with priority if set in CMake or env
++#
++#  PROJ4_PATH          - prefix path of the Armadillo installation
++#  PROJ4_ROOT              - Set this variable to the root installation
++
++# Search with priority for PROJ4_PATH if given as CMake or env var
++
++find_path(PROJ4_INCLUDE_DIR proj.h
++          HINTS $ENV{PROJ4_ROOT} ${PROJ4_ROOT}
++          PATHS ${PROJ4_PATH} ENV PROJ4_PATH
++          PATH_SUFFIXES include NO_DEFAULT_PATH)
++
++find_path(PROJ4_INCLUDE_DIR proj.h PATH_SUFFIXES include )
++
++# Search with priority for PROJ4_PATH if given as CMake or env var
++find_library(PROJ4_LIBRARY proj
++            HINTS $ENV{PROJ4_ROOT} ${PROJ4_ROOT}
++            PATHS ${PROJ4_PATH} ENV PROJ4_PATH
++            PATH_SUFFIXES lib64 lib NO_DEFAULT_PATH)
++
++find_library( PROJ4_LIBRARY proj PATH_SUFFIXES lib64 lib )
++
++set( PROJ4_LIBRARIES    ${PROJ4_LIBRARY} )
++set( PROJ4_INCLUDE_DIRS ${PROJ4_INCLUDE_DIR} )
++
++include(FindPackageHandleStandardArgs)
++
++# handle the QUIET and REQUIRED arguments and set PROJ4_FOUND to TRUE
++# if all listed variables are TRUE
++# Note: capitalisation of the package name must be the same as in the file name
++find_package_handle_standard_args(PROJ4 DEFAULT_MSG PROJ4_LIBRARY PROJ4_INCLUDE_DIR)
++
++mark_as_advanced(PROJ4_INCLUDE_DIR PROJ4_LIBRARY)

@@ -1,0 +1,95 @@
+ecbuild (3.6.3-1) unstable; urgency=medium
+
+  * Add watch file
+  * New upstream release
+  * Standards-Version: 4.6.0
+  * ecbuild-import.cmake now ecbuild-post-import.cmake
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Wed, 27 Oct 2021 12:30:32 +0100
+
+ecbuild (3.6.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Provide dh_ecbuild, with dh-sequence-ecbuild, to provide ecbuild substvar
+    variables (IN DEVELOPMENT)
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 25 Mar 2021 11:59:43 +0000
+
+ecbuild (3.4.1-1) unstable; urgency=medium
+
+  * Drop optional dependency on clang-tidy, as it breaks building on many
+    secondary archs
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sat, 14 Nov 2020 10:47:25 +0000
+
+ecbuild (3.4.0-2) unstable; urgency=medium
+
+  * Ensure files are installed in /usr/lib/cmake and match cmake fragments
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sat, 17 Oct 2020 11:20:23 +0100
+
+ecbuild (3.4.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/rules: path for usr/li§b/cmake is now  multiarch
+  * Move to debhelper level 13
+  * Move to DEP-14 branches in d/gbp.conf
+  * Point Vcs-Git to debian/latest branch
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sat, 17 Oct 2020 09:43:38 +0100
+
+ecbuild (3.3.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * Depend on dh-buildinfo, clang-tidy, chrpath
+  * Add FindProj4.cmake, FindLatex.cmake patches
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 23 Apr 2020 09:09:13 +0100
+
+ecbuild (3.3.0-2) unstable; urgency=medium
+
+  * Ship ecbuild.pm for debhelper buildsystem
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Tue, 21 Apr 2020 16:34:00 +0100
+
+ecbuild (3.3.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Standards-Version: 4.5.0
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sat, 14 Mar 2020 11:48:45 +0000
+
+ecbuild (3.1.0-2) unstable; urgency=medium
+
+  * Add build changes for GNU/Hurd (originally for odb-api)
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Mon, 14 Oct 2019 11:36:50 +0100
+
+ecbuild (3.1.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Fix comment in d/control
+  * Drop unnecessary dependency on dh-fortran-mod
+  * Add d/gbp.conf
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 10 Oct 2019 13:07:01 +0100
+
+ecbuild (3.0.3-3) unstable; urgency=medium
+
+  * Patch from Chris Lamb for reproduciblity. Closes: #934767
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Mon, 23 Sep 2019 15:37:43 +0100
+
+ecbuild (3.0.3-2) unstable; urgency=medium
+
+  * Set ecbuild as Multi-Arch: foreign
+  * Rebuild with source-only upload
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Mon, 19 Aug 2019 20:08:10 +0100
+
+ecbuild (3.0.3-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #933965)
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Mon, 05 Aug 2019 18:04:05 +0100

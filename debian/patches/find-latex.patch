@@ -1,0 +1,43 @@
+Description: Fix FindLatex.cmake to work on Debian
+Author: Alastair McKinstry <mckinstry@debian.org>
+Last-Updated: 2020-04-21
+Forwarded: no
+
+Index: ecbuild-3.3.0/cmake/FindLatex.cmake
+===================================================================
+--- /dev/null
++++ ecbuild-3.3.0/cmake/FindLatex.cmake
+@@ -0,0 +1,33 @@
++# (C) Copyright 2013 ECMWF.
++#
++# This software is licensed under the terms of the Apache Licence Version 2.0
++# which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
++# In applying this licence, ECMWF does not waive the privileges and immunities
++# granted to it by virtue of its status as an intergovernmental organisation nor
++# does it submit to any jurisdiction.
++
++###############################################################################
++
++# find latex libraries
++FIND_PROGRAM (PDFLATEX
++              NAMES pdflatex
++              PATHS /usr/bin/)
++FIND_PROGRAM (BIBTEX
++              NAMES bibtex
++              PATHS /usr/bin/)
++FIND_PROGRAM (MAKEINDEX
++              NAMES makeindex
++              PATHS /usr/bin/)
++FIND_PROGRAM (HTLATEX
++              NAMES htlatex
++              PATHS /usr/bin/)
++
++if ( PDFLATEX AND BIBTEX AND MAKEINDEX AND HTLATEX )
++    set( Latex_FOUND TRUE )
++    set( LATEX_FOUND TRUE )
++endif()
++
++
++mark_as_advanced(PDFLATEX BIBTEX MAKEINDEX HTLATEX)
++
++

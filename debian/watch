@@ -1,0 +1,3 @@
+version=3
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/ecbuild-$1\.tar\.gz/ \
+  https://github.com/ecmwf/ecbuild/tags .*/v?(\d\d?\d?\..+).tar\.gz

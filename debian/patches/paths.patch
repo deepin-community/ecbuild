@@ -1,0 +1,15 @@
+Description: Fix the path for debian
+Author: Alastair McKinstry <mckinstry@debian.org>
+Last-Updated: 2019-08-06
+Forwarded: not-needed
+
+Index: ecbuild-3.0.3/cmake/sg.pl
+===================================================================
+--- ecbuild-3.0.3.orig/cmake/sg.pl
++++ ecbuild-3.0.3/cmake/sg.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ 
+ # (C) Copyright 2011- ECMWF.
+ #

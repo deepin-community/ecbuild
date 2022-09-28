@@ -1,0 +1,2 @@
+debian/ecbuild.pm /usr/share/perl5/Debian/Debhelper/Buildsystem
+# debian/dh_ecbuild /usr/bin

@@ -1,0 +1,44 @@
+Description: Fixes for GNU/Hurd
+Author:  Samuel Thibault <sthibault@debian.org>
+Bug-Origin: https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=942248;filename=patch;msg=5
+Last-Updated: 2019-10-14
+Forwarded: no
+
+Index: ecbuild-3.1.0/cmake/ecbuild_append_to_rpath.cmake
+===================================================================
+--- ecbuild-3.1.0.orig/cmake/ecbuild_append_to_rpath.cmake
++++ ecbuild-3.1.0/cmake/ecbuild_append_to_rpath.cmake
+@@ -99,7 +99,13 @@ macro( ecbuild_target_rpath target mode
+         if( NOT ${rpath_dir} STREQUAL "" )
+             file( TO_CMAKE_PATH ${rpath_dir} rpath_dir ) # sanitise the path
+ 
+-            if( IS_ABSOLUTE ${rpath_dir} )
++
++#if( EC_OS_NAME STREQUAL "hurd" )
++#                                       _path_append( CMAKE_INSTALL_RPATH "$ORIGIN/${RPATH_DIR}" )
++#                                       set( _done 1 )
++#                               endif()
++
++           if( IS_ABSOLUTE ${rpath_dir} )
+                 ecbuild_path_append( _target_rpath "${rpath_dir}" )
+ 
+             else()
+Index: ecbuild-3.1.0/cmake/ecbuild_check_os.cmake
+===================================================================
+--- ecbuild-3.1.0.orig/cmake/ecbuild_check_os.cmake
++++ ecbuild-3.1.0/cmake/ecbuild_check_os.cmake
+@@ -450,6 +450,14 @@ if( WIN32 )
+ 
+ endif()
+ 
++### GNU/Hurd
++
++if( ${CMAKE_SYSTEM_NAME} MATCHES "GNU" )
++
++  set( EC_OS_NAME "hurd" )
++
++endif()
++
+ ### final warning / error
+ 
+ if( ${EC_OS_NAME} MATCHES "UNKNOWN" )

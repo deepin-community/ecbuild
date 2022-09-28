@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE=1
+
+include /usr/share/dpkg/pkg-info.mk
+
+%:
+	dh $@ --buildsystem=cmake
+
+#override_dh_auto_clean:
+#	$(RM) -f debian/dh_ecbuild
+
+override_dh_auto_configure:
+	# Don't use multiarch paths
+	dh_auto_configure --  -DCMAKE_INSTALL_LIBDIR=/usr/lib
+
+debian/dh_ecbuild: debian/dh_ecbuild.in
+	sed 's/@VERSION@/$(DEB_VERSION)/' $< > $@
+	chmod 0755 $@
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod +x debian/ecbuild/usr/share/ecbuild/cmake/sg.pl
+	# chmod -x debian/ecbuild/usr/share/ecbuild/toolchains/preprocess_cray_fortran
+
+override_dh_install:
+	dh_install
+	sed -i -e 's@$(CURDIR)@/usr/share/ecbuild@g' debian/ecbuild/usr/lib/cmake/ecbuild/ecbuild-post-import.cmake
