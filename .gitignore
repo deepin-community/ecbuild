@@ -1,1 +1,11 @@
-.pc/
+*sublime-workspace
+CMakeLists.txt.user*
+*.log
+*.py[cdo]
+*.swp
+*~
+doc/contrib
+doc/find
+doc/macros
+build
+.DS_Store
