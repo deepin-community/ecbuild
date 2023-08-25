@@ -1,4 +1,4 @@
-Format-Specification: http://wiki.debian.org/Proposals/CopyrightFormat?action=recall&rev=196
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ecbuild
 Upstream-Source: https://github.com/ecmwf/ecbuild
 

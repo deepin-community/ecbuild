@@ -2,13 +2,13 @@ Source: ecbuild
 Section: science
 Priority: optional
 Maintainer: Alastair McKinstry <mckinstry@debian.org>
-Build-Depends: debhelper-compat (= 13), 
-  dh-buildinfo, 
+Build-Depends: debhelper-compat (= 13),
+  dh-buildinfo,
   cmake
-Standards-Version: 4.6.0
+Standards-Version: 4.6.2
 Homepage: https://confluence.ecmwf.int/spaces/viewspace.action?key=ecbuild
 Vcs-Browser: https://salsa.debian.org:/science-team/ecbuild.git
-Vcs-Git: https://salsa.debian.org:/science-team/ecbuild.git -b debian/latest
+Vcs-Git: https://salsa.debian.org/science-team/ecbuild.git -b debian/latest
 
 Package: ecbuild
 Section: libs
@@ -24,4 +24,3 @@ Description: Build system for ECMWF software
  This is a toolkit from ECMWF extend CMAKE with macros used at ECMWF.
  .
  ECMWF is the European Centre for Medium-Range Weather Forecasts.
-
